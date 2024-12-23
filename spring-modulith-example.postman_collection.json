@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "4555b77f-b55d-43a6-8aa2-6b901e62d574",
+		"name": "spring-modulith-example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31307651"
+	},
+	"item": [
+		{
+			"name": "Product IDs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/catalog?pageNumber=0",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"catalog"
+					],
+					"query": [
+						{
+							"key": "pageNumber",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/catalog/products/:productId",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"catalog",
+						"products",
+						":productId"
+					],
+					"variable": [
+						{
+							"key": "productId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Catalog Search By Name And Description",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/catalog/search/by/nameAndDescription?name=Produkt&description=&pageNumber=0",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"catalog",
+						"search",
+						"by",
+						"nameAndDescription"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Produkt"
+						},
+						{
+							"key": "description",
+							"value": ""
+						},
+						{
+							"key": "pageNumber",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Catalog Search By Max Price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/catalog/search/by/maxPrice?price=200&pageNumber=0",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"catalog",
+						"search",
+						"by",
+						"maxPrice"
+					],
+					"query": [
+						{
+							"key": "price",
+							"value": "200"
+						},
+						{
+							"key": "pageNumber",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stock",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/inventory/stock/:productId",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"inventory",
+						"stock",
+						":productId"
+					],
+					"variable": [
+						{
+							"key": "productId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Out Of Stock Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/catalog/products/outOfStock",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"catalog",
+						"products",
+						"outOfStock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Stock",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/inventory/stock/:productId?quantity=100",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"inventory",
+						"stock",
+						":productId"
+					],
+					"query": [
+						{
+							"key": "quantity",
+							"value": "100"
+						}
+					],
+					"variable": [
+						{
+							"key": "productId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/inventory/stock/:productId?quantity=100",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"inventory",
+						"stock",
+						":productId"
+					],
+					"query": [
+						{
+							"key": "quantity",
+							"value": "100"
+						}
+					],
+					"variable": [
+						{
+							"key": "productId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
