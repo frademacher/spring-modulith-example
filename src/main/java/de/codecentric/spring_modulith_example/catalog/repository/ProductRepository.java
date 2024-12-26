@@ -10,5 +10,4 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> searchByNameOrDescriptionLikeIgnoreCase(String name, String description, PageRequest pageRequest);
     List<Product> findByPriceLessThanEqual(Money price, PageRequest pageRequest);
-    List<Product> findByCurrentQuantityLessThan(int quantity);
 }

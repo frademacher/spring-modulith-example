@@ -2,6 +2,7 @@ package de.codecentric.spring_modulith_example.catalog.controller;
 
 import de.codecentric.spring_modulith_example.catalog.model.Product;
 import de.codecentric.spring_modulith_example.catalog.repository.ProductRepository;
+import de.codecentric.spring_modulith_example.inventory.InventoryModuleApi;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,9 +19,17 @@ import java.util.List;
 public class ProductApi {
     public static final int CATALOG_PAGE_SIZE = 20;
 
+    /**
+     * Injection target for the API implementation of the Inventory module that allows for interaction of the Catalog
+     * module with the Inventory module by means of direct Java method calls instead of events. Note that this direct
+     * type-level interaction is tighter than event-based communication.
+     */
+    private final InventoryModuleApi inventoryModuleApi;
+
     private final ProductRepository productRepository;
 
-    public ProductApi(ProductRepository productRepository) {
+    public ProductApi(InventoryModuleApi inventoryModuleApi, ProductRepository productRepository) {
+        this.inventoryModuleApi = inventoryModuleApi;
         this.productRepository = productRepository;
     }
 
@@ -48,6 +57,6 @@ public class ProductApi {
 
     @GetMapping("catalog/products/outOfStock")
     public List<Long> getOutOfStockProducts() {
-        return productRepository.findByCurrentQuantityLessThan(1).stream().map(Product::getId).toList();
+        return inventoryModuleApi.getOutOfStockProducts();
     }
 }

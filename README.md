@@ -3,7 +3,18 @@ This example Spring Boot application illustrates several techniques provided by
 [Spring Modulith](https://spring.io/projects/spring-modulith) to create and ensure the correctness of the architectural
 structure of [modulithic applications](https://dzone.com/articles/architecture-style-modulith-vs-microservices).
 
-More precisely, the following features of Spring Modulith are exemplified:
+**Note that this version of the example application illustrates the usage of module APIs to allow for module**
+**interactions based on direct Java method calls rather than "indirect" event exchange (cf. the version of the**
+**example application in the `main` branch).** A module API consists of one or more classes of a module that are exposed
+for usage by other modules. In this version of the example application, the Inventory module exposes an API in its
+public
+[`InventoryModuleApi.java`](src/main/java/de/codecentric/spring_modulith_example/inventory/InventoryModuleApi.java)
+class which the Catalog module uses in its
+[`ProductApi`](src/main/java/de/codecentric/spring_modulith_example/catalog/controller/ProductApi.java). **Note that,**
+**compared to event-based module interaction, Java method-based module interaction generally increases module**
+**coupling.**
+
+The example application illustrates the following features of Spring Modulith:
 - Implicit (visibility-based) and explicit (`package-info.java`) module definition.
 - Handling of nested and shared modules.
 - Adherence to and verification of the intended modulithic architecture.
