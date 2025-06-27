@@ -22,7 +22,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <moneta.version>1.4.4</moneta.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-modulith.version>1.4.0</spring-modulith.version>
+        <spring-modulith.version>1.4.1</spring-modulith.version>
     </properties>
 
     <dependencies>
