@@ -7,7 +7,7 @@
     <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.5</version>
+		<version>3.5.7</version>
 		<relativePath/>
 	</parent>
 
@@ -16,13 +16,14 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-    	<assertj.version>3.27.0</assertj.version>
+    	<assertj.version>3.27.6</assertj.version>
+    	<hypersistence.utils.hibernate.63.version>3.9.0</hypersistence.utils.hibernate.63.version>
     	<java.version>21</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <moneta.version>1.4.4</moneta.version>
+        <moneta.version>1.4.5</moneta.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-modulith.version>1.4.1</spring-modulith.version>
+        <spring-modulith.version>1.4.4</spring-modulith.version>
     </properties>
 
     <dependencies>
@@ -35,7 +36,7 @@
 		<dependency>
     		<groupId>io.hypersistence</groupId>
     		<artifactId>hypersistence-utils-hibernate-63</artifactId>
-    		<version>3.9.0</version>
+    		<version>${hypersistence.utils.hibernate.63.version}</version>
 		</dependency>
 
 		<dependency>
