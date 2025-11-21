@@ -19,6 +19,6 @@ class GlobalControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(NumberFormatException.class)
     protected ResponseEntity<Object> handleUnprocessableEntity(RuntimeException ex, WebRequest request) {
-        return handleExceptionInternal(ex, null, new HttpHeaders(), HttpStatus.UNPROCESSABLE_ENTITY, request);
+        return handleExceptionInternal(ex, null, new HttpHeaders(), HttpStatus.UNPROCESSABLE_CONTENT, request);
     }
 }

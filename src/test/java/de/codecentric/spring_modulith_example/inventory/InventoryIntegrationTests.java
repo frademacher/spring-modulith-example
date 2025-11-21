@@ -4,8 +4,8 @@ import de.codecentric.spring_modulith_example.catalog.external_events.InventoryP
 import de.codecentric.spring_modulith_example.inventory.repository.StockRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.modulith.events.core.EventPublicationRepository;
 import org.springframework.modulith.test.ApplicationModuleTest;
 import org.springframework.modulith.test.PublishedEvents;
@@ -52,7 +52,7 @@ class InventoryIntegrationTests {
         // quantity" as transmitted in the QuantityChanged event).
         assertThat(publishedEvents.ofType(QuantityChanged.class)).hasSize(1);
         assertThat(
-            publishedEvents.ofType(QuantityChanged.class).matching(QuantityChanged::getNewQuantity, quantity)
+            publishedEvents.ofType(QuantityChanged.class).matchingValue(QuantityChanged::getNewQuantity, quantity)
         ).hasSize(1);
     }
 }

@@ -1,7 +1,5 @@
 package de.codecentric.spring_modulith_example.catalog;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import de.codecentric.spring_modulith_example.catalog.model.Product;
 import de.codecentric.spring_modulith_example.catalog.repository.ProductRepository;
 import de.codecentric.spring_modulith_example.inventory.QuantityChanged;
@@ -9,8 +7,8 @@ import de.codecentric.spring_modulith_example.inventory.model.Stock;
 import de.codecentric.spring_modulith_example.inventory.repository.StockRepository;
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.PageImpl;
@@ -20,6 +18,8 @@ import org.springframework.modulith.test.Scenario;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.ObjectMapper;
 
 import java.util.List;
 import java.util.Optional;
